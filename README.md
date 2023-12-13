@@ -20,7 +20,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/your-username/todo-list-app.git
+git clone https://github.com/KalyanGanguli/Minor-Project
 Open the project folder in your favorite code editor.
 
 Open index.html in your web browser to use the application.

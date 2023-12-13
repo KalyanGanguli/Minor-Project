@@ -53,7 +53,6 @@ body{
     background-color: #25273c;
     color: white;
 }
-
 .todo-item-container {
     margin-top: 15px;
 }
@@ -68,7 +67,10 @@ body{
     margin-top: 10px;
     padding: 15px;
 }
-
+.text-white{
+    color: white;
+    background-color: white;
+}
 .button {
     color: white;
     background-color: #4c63b6;
@@ -83,21 +85,22 @@ body{
     padding-right: 20px;
     padding-left: 20px;
 }
-.button-1 {
-    color: white;
-    font-family: "Roboto";
-    font-size: 12 px;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 50px;
-    border-color: white;
+.button-1{
     background-color: transparent;
-    text-align: center;
+    border-color: transparent;
+    border-style: solid;
+    
 }
+button, input[type="button"] {
+    outline: none;
+}
+
 .margin{
     margin-top: 65px;
 }
-
+.label-container{
+    width: 100%;
+}
 
 .checkbox-input {
     width: 20px;
@@ -108,7 +111,7 @@ body{
 
 .checkbox-label {
     font-family: "Roboto";
-    font-size: 16px;
+    font-size: 23px;
     font-weight: 400;
     width: 82%;
     margin: 0px;

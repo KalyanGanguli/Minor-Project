@@ -54,6 +54,9 @@ function onDeleteTodo(todoId) {
         }
     });
     todoList.splice(deleteTodoItemIndex, 1);
+    if(todoList.length == 0 ){
+        saveTodoButton.classList.add('d-none');
+    }
 }
 
 function createAndAppendTodo(todo) {
@@ -62,13 +65,14 @@ function createAndAppendTodo(todo) {
     let labelId = 'label' + todo.uniqueNo;
 
     let todoElement = document.createElement("li");
-    todoElement.classList.add("todo-item-container", "d-flex", "flex-row","pr-5",'pl-2','pt-4');
+    todoElement.classList.add("todo-item-container", "d-flex", "flex-row","pr-5",'pl-2','pt-1');
     todoElement.id = todoId;
     todoItemsContainer.appendChild(todoElement);
 
     let inputElement = document.createElement("input");
     inputElement.type = "checkbox";
     inputElement.id = checkboxId;
+    inputElement.classList.add("ml-2");
     inputElement.checked = todo.ischecked;
 
     inputElement.onclick = function() {
@@ -85,7 +89,7 @@ function createAndAppendTodo(todo) {
     let labelElement = document.createElement("label");
     labelElement.setAttribute("for", checkboxId);
     labelElement.id = labelId;
-    labelElement.classList.add("checkbox-label");
+    labelElement.classList.add("checkbox-label","d-flex", "flex-column",'justify-content-center');
     labelElement.textContent = todo.text;
     if (todo.ischecked === true) {
         labelElement.classList.add('checked');
@@ -93,7 +97,7 @@ function createAndAppendTodo(todo) {
     labelContainer.appendChild(labelElement);
 
     let deleteIconContainer = document.createElement("div");
-    deleteIconContainer.classList.add("delete-icon-container");
+    deleteIconContainer.classList.add("delete-icon-container","ml-auto");
     labelContainer.appendChild(deleteIconContainer);
 
     let deleteIcon = document.createElement("i");
@@ -102,12 +106,14 @@ function createAndAppendTodo(todo) {
     deleteIcon.onclick = function() {
         onDeleteTodo(todoId);
     };
-
-    deleteIconContainer.appendChild(deleteIcon);
+    deleteIconContainer.appendChild(deleteIcon);    
 }
 
 for (let todo of todoList) {
-    createAndAppendTodo(todo);
+    createAndAppendTodo(todo);   
+}
+if(todoList.length != 0 ){
+saveTodoButton.classList.remove('d-none');
 }
 
 function onAddTodo() {
@@ -129,6 +135,9 @@ function onAddTodo() {
     todoList.push(newTodo);
     createAndAppendTodo(newTodo);
     userInputElement.value = "";
+    if(todoList.length != 0 ){
+        saveTodoButton.classList.remove('d-none');
+    }
 }
 
 addTodoButton.onclick = function() {

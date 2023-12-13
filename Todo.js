@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
 let todoItemsContainer = document.getElementById("todoItemsContainer");
 let addTodoButton = document.getElementById("addTodoButton");
 let saveTodoButton = document.getElementById('saveTodoButton');
-
+let deleteAll = document.getElementById('clearAll');
+let deleteAllCompletely = document.getElementById('deleteAllbutton');
 
 function getTodoListFromLocalStorage() {
     let stringified = localStorage.getItem('todoList');
@@ -56,6 +57,8 @@ function onDeleteTodo(todoId) {
     todoList.splice(deleteTodoItemIndex, 1);
     if(todoList.length == 0 ){
         saveTodoButton.classList.add('d-none');
+        deleteAll.classList.add('d-none');
+        deleteAllCompletely.classList.add('d-none');
     }
 }
 
@@ -114,6 +117,8 @@ for (let todo of todoList) {
 }
 if(todoList.length != 0 ){
 saveTodoButton.classList.remove('d-none');
+deleteAll.classList.remove('d-none');
+deleteAllCompletely.classList.remove('d-none');
 }
 
 function onAddTodo() {
@@ -135,14 +140,54 @@ function onAddTodo() {
     todoList.push(newTodo);
     createAndAppendTodo(newTodo);
     userInputElement.value = "";
-    if(todoList.length != 0 ){
+    if(todoList.length > 0 ){
         saveTodoButton.classList.remove('d-none');
+        deleteAll.classList.remove('d-none');
+        deleteAllCompletely.classList.remove('d-none');
     }
 }
 
 addTodoButton.onclick = function() {
-    console.log('working')
     onAddTodo();
 }
+deleteAll.onclick = function () {
+    for (let i = todoList.length - 1; i >= 0; i--) {
+        let todo = todoList[i];
+        if (todo.ischecked === true) {
+            let todoId = 'todo' + todo.uniqueNo;
+            let todoElement = document.getElementById(todoId);
+            todoItemsContainer.removeChild(todoElement);
 
+            let deleteTodoItemIndex = todoList.findIndex(function (eachTodo) {
+                return eachTodo.uniqueNo === todo.uniqueNo;
+            });
+
+            if (deleteTodoItemIndex !== -1) {
+                todoList.splice(deleteTodoItemIndex, 1);
+            }
+        }
+    }
+
+    if (todoList.length === 0) {
+        saveTodoButton.classList.add('d-none');
+        deleteAll.classList.add('d-none');
+        deleteAllCompletely.classList.add('d-none');
+    }
+};
+
+
+deleteAllCompletely.onclick = function () {
+    while (todoList.length > 0) {
+        let todo = todoList.pop();
+        let todoId = 'todo' + todo.uniqueNo;
+        let todoElement = document.getElementById(todoId);
+        todoItemsContainer.removeChild(todoElement);
+    }
+
+    if (todoList.length === 0) {
+        saveTodoButton.classList.add('d-none');
+        deleteAll.classList.add('d-none');
+        deleteAllCompletely.classList.add('d-none');
+    }
+};
 });

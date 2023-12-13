@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="todos-bg-container">
+    <div class="background-color">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -24,9 +24,11 @@
                     <h1 class="create-task-heading">
                         Create <span class="create-task-heading-subpart">Task</span>
                     </h1>
-                    <input type="text" id="todoUserInput" class="todo-user-input" placeholder="What needs to be done?" />
-                    <button class="button" id="addTodoButton">Add</button>
-                    <h1 class="todo-items-heading">
+                    <div class="row">
+                        <button class="button-1  mt-auto mb-auto ml-4 mr-4" id="addTodoButton"><span class='p-1'>+</span></button>
+                        <input type="text" id="todoUserInput" class="todo-user-input black col-8" placeholder="What needs to be done?" />
+                    </div>
+                    <h1 class="todo-items-heading mt-4">
                         My <span class="todo-items-heading-subpart">Tasks</span>
                     </h1>
                     <ul class="todo-items-container" id="todoItemsContainer"></ul>

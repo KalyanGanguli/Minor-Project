@@ -72,7 +72,7 @@ function createAndAppendTodo(todo) {
     let inputElement = document.createElement("input");
     inputElement.type = "checkbox";
     inputElement.id = checkboxId;
-    inputElement.classList.add("ml-2");
+    inputElement.classList.add("ml-2",'mt-auto','mb-auto');
     inputElement.checked = todo.ischecked;
 
     inputElement.onclick = function() {
@@ -89,7 +89,7 @@ function createAndAppendTodo(todo) {
     let labelElement = document.createElement("label");
     labelElement.setAttribute("for", checkboxId);
     labelElement.id = labelId;
-    labelElement.classList.add("checkbox-label","d-flex", "flex-column",'justify-content-center');
+    labelElement.classList.add("checkbox-label");
     labelElement.textContent = todo.text;
     if (todo.ischecked === true) {
         labelElement.classList.add('checked');
@@ -97,7 +97,7 @@ function createAndAppendTodo(todo) {
     labelContainer.appendChild(labelElement);
 
     let deleteIconContainer = document.createElement("div");
-    deleteIconContainer.classList.add("delete-icon-container","ml-auto");
+    deleteIconContainer.classList.add("delete-icon-container","ml-auto",'mt-auto','mb-auto');
     labelContainer.appendChild(deleteIconContainer);
 
     let deleteIcon = document.createElement("i");

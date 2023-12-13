@@ -4,7 +4,6 @@
 body{
     font: var(--fw-normal) var(--base-font) var(--ff-sans);
   background:  no-repeat 0% 0% / 100vw 25rem;
-  padding-top: 8rem;
   width: min(85%, 54rem);
   margin: auto;
   background-color: #171723;
@@ -96,7 +95,7 @@ body{
     text-align: center;
 }
 .margin{
-    margin-top: 75px;
+    margin-top: 65px;
 }
 
 

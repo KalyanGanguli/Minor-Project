@@ -3,7 +3,7 @@
 
 body{
     font: var(--fw-normal) var(--base-font) var(--ff-sans);
-  background:  no-repeat 0% 0% / 100vw 17rem;
+  background:  no-repeat 0% 0% / 100vw 25rem;
   padding-top: 8rem;
   width: min(85%, 54rem);
   margin: auto;
@@ -15,8 +15,9 @@ body{
 }
 
 .todos-heading {
-    text-align: center;
-    font-family: "Monospace";
+    text-align: LEFT;
+    font-family: "bree serif";
+    letter-spacing: 30px;
     font-size: 46px;
     font-weight: 500;
     margin-top: 20px;
@@ -92,8 +93,11 @@ body{
     border-radius: 50px;
     border-color: white;
     background-color: transparent;
+    text-align: center;
 }
-
+.margin{
+    margin-top: 75px;
+}
 
 
 .checkbox-input {
